@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ComboBox fx:id="cbCombo" layoutX="31.0" layoutY="83.0" onAction="#handleSodaComboBox" prefWidth="150.0" promptText="Beverage" visibleRowCount="4">
+         <tooltip>
+            <Tooltip text="Use Dropdown to choose Soda" />
+         </tooltip></ComboBox>
+      <TextField fx:id="tbIceCream" layoutX="54.0" layoutY="182.0" promptText="Favorite Ice Cream Flavor">
+         <tooltip>
+            <Tooltip text="Choose an Ice Cream" />
+         </tooltip>
+      </TextField>
+      <TextField fx:id="tbPizza" layoutX="276.0" layoutY="182.0" promptText="Favorite Pizza Style">
+         <tooltip>
+            <Tooltip text="Choose a pizza" />
+         </tooltip>
+      </TextField>
+      <RadioButton fx:id="rbIceCreamCaramel" layoutX="53.0" layoutY="283.0" mnemonicParsing="false" selected="true" text="Caramel">
+         <toggleGroup>
+            <ToggleGroup fx:id="rbSet1" />
+         </toggleGroup>
+         <tooltip>
+            <Tooltip text="Caramel drizzle" />
+         </tooltip>
+      </RadioButton>
+      <RadioButton fx:id="rbIceCreamChocolate" layoutX="53.0" layoutY="314.0" mnemonicParsing="false" text="Chocolate" toggleGroup="$rbSet1">
+         <tooltip>
+            <Tooltip text="Chocolate sauce" />
+         </tooltip></RadioButton>
+      <RadioButton fx:id="rbIceCreamStrawberry" layoutX="53.0" layoutY="344.0" mnemonicParsing="false" text="Strawberry" toggleGroup="$rbSet1">
+         <tooltip>
+            <Tooltip text="Strawberry sauce" />
+         </tooltip></RadioButton>
+      <RadioButton fx:id="rbPepperoni" layoutX="274.0" layoutY="283.0" mnemonicParsing="false" selected="true" text="Pepperoni">
+         <toggleGroup>
+            <ToggleGroup fx:id="rbSet2" />
+         </toggleGroup>
+         <tooltip>
+            <Tooltip text="Pepperonis" />
+         </tooltip>
+      </RadioButton>
+      <RadioButton fx:id="rbSupreme" layoutX="274.0" layoutY="314.0" mnemonicParsing="false" text="Supreme" toggleGroup="$rbSet2">
+         <tooltip>
+            <Tooltip text="All the toppings" />
+         </tooltip></RadioButton>
+      <RadioButton fx:id="rbCheese" layoutX="274.0" layoutY="344.0" mnemonicParsing="false" text="Cheese" toggleGroup="$rbSet2">
+         <tooltip>
+            <Tooltip text="No toppings, just cheese" />
+         </tooltip></RadioButton>
+      <Button id="btnSummary" fx:id="btnSummary" layoutX="53.0" layoutY="413.0" mnemonicParsing="false" onAction="#onActionSummary" onMouseEntered="#onActionMouseEnteredSubmit" onMouseExited="#onActionMouseExitedSubmit" text="Summary">
+         <tooltip>
+            <Tooltip text="Show results without saving" />
+         </tooltip></Button>
+      <TextArea fx:id="tfSummary" editable="false" layoutX="150.0" layoutY="392.0" prefHeight="100.0" prefWidth="331.0" wrapText="true" />
+      <Button fx:id="btnSave" layoutX="53.0" layoutY="449.0" mnemonicParsing="false" onAction="#onActionSave" onMouseEntered="#onActionMouseEntered" onMouseExited="#onActionMouseExited" prefHeight="25.0" prefWidth="66.0" text="SAVE">
+         <tooltip>
+            <Tooltip text="Produce results and save to a file" />
+         </tooltip></Button>
+      <Label layoutX="53.0" layoutY="149.0" text="Ice Cream">
+         <tooltip>
+            <Tooltip text="Type your favorite type of ice cream" />
+         </tooltip></Label>
+      <Label layoutX="274.0" layoutY="149.0" text="Pizza">
+         <tooltip>
+            <Tooltip text="Choose your favorite pizza style (deep dish, thin crust, New York, etc...)" />
+         </tooltip></Label>
+      <Label layoutX="30.0" layoutY="55.0" text="Choose a Drink">
+         <tooltip>
+            <Tooltip text="Choose your favorite soda" />
+         </tooltip></Label>
+      <Label layoutX="51.0" layoutY="252.0" text="Choose an Ice Cream Topping">
+         <tooltip>
+            <Tooltip text="Pick a topping for your ice cream" />
+         </tooltip></Label>
+      <Label layoutX="272.0" layoutY="252.0" text="Choose a pizza topping">
+         <tooltip>
+            <Tooltip text="Choose a topping for your pizza" />
+         </tooltip></Label>
+      <Slider blockIncrement="0.0" layoutX="259.0" layoutY="76.0" majorTickUnit="1.0" max="8.0" minorTickCount="0" prefHeight="39.0" prefWidth="199.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+   </children>
+</AnchorPane>
