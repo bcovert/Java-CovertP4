@@ -8,13 +8,39 @@ public class Data {
 
 
     //Controller control = new Controller();
-private String pizza;
-private String iceCream;
-private String pizzaToppings;
-private String iceCreamToppings;
-private String soda;
+    private String pizza;
 
+    public double getPizzaToppingCost() {
+        return pizzaToppingCost;
+    }
 
+    public void setPizzaToppingCost(double pizzaToppingCost) {
+        this.pizzaToppingCost = pizzaToppingCost;
+    }
+
+    public double getIceCreamToppingCost() {
+        return iceCreamToppingCost;
+    }
+
+    public void setIceCreamToppingCost(double iceCreamToppingCost) {
+        this.iceCreamToppingCost = iceCreamToppingCost;
+    }
+
+    private String iceCream;
+    private String pizzaToppings;
+    private String iceCreamToppings;
+    private String soda;
+    private double sodaCost;
+    private double pizzaToppingCost;
+    private double iceCreamToppingCost;
+
+    public double getSodaCost() {
+        return sodaCost;
+    }
+
+    public void setSodaCost(double sodaCost) {
+        this.sodaCost = sodaCost;
+    }
 
     public Data() {
     }
@@ -61,7 +87,9 @@ private String soda;
 
     @Override
     public String toString() {
-        return "You want " + pizzaToppings + " " + pizza + " pizza with a " + soda + " and some " + iceCream + " ice cream " + iceCreamToppings + " on top for dessert";
+        return "You want " + pizzaToppings + " " + pizza + " pizza with a " + soda + " and some " + iceCream + " ice cream " + iceCreamToppings + " on " +
+                "top for dessert. and the cost of the soda is: $" + sodaCost + "and pizza topping cost is $" + pizzaToppingCost
+                + "and the ice cream topping cost is $" + iceCreamToppingCost;
     }
 
     public void WriteFile(File file)

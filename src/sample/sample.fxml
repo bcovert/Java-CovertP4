@@ -15,7 +15,7 @@
    <children>
       <ComboBox fx:id="cbCombo" layoutX="31.0" layoutY="83.0" onAction="#handleSodaComboBox" prefWidth="150.0" promptText="Beverage" visibleRowCount="4">
          <tooltip>
-            <Tooltip text="Use Dropdown to choose Soda" />
+            <Tooltip text="Use Dropdown to choose drink" />
          </tooltip></ComboBox>
       <TextField fx:id="tbIceCream" layoutX="54.0" layoutY="182.0" promptText="Favorite Ice Cream Flavor">
          <tooltip>

@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 
 import java.io.File;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
@@ -53,6 +54,29 @@ public class Controller implements Initializable{
     @FXML private Button btnSummary;
 
     @FXML private Button btnSave;
+
+    @FXML private Slider sldrPizzaSize;
+
+    @FXML private CheckBox chbGarlicButter;
+
+    @FXML private CheckBox chbRanch;
+
+    @FXML private CheckBox chbBbq;
+
+    @FXML
+    void OnActionCheckBbq(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OnActionCheckGarlicButter(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OnActionCheckRanch(ActionEvent event) {
+
+    }
 
     @FXML void handleSodaComboBox(ActionEvent event) {
 
@@ -100,19 +124,63 @@ public class Controller implements Initializable{
 
     @FXML
     public void onActionSummary(ActionEvent event) {
+        String sodaChoice = cbCombo.getValue();
+        double sodaCost;
+        if (sodaChoice == "None")
+        {
+            sodaCost = 0.0;
+        }
+        else
+        {
+            sodaCost = 1.00;
+        }
         data = new Data();
         String pizza = tbPizza.getText();
         String iceCream = tbIceCream.getText();
         String soda = cbCombo.getValue();
         RadioButton pizzaToppings = (RadioButton) rbSet2.getSelectedToggle();
         String pizzaGroup = pizzaToppings.getText();
+
+        //calculate extra cost of pizza
+        double pizzaToppingCost;
+        if ( pizzaGroup == "Cheese")
+        {
+            pizzaToppingCost = 0.0;
+        }
+        else if (pizzaGroup == "Pepperoni")
+        {
+            pizzaToppingCost = 1.00;
+        }
+        else
+        {
+            pizzaToppingCost = 1.50;
+        }
+        data.setPizzaToppingCost(pizzaToppingCost);
+
+
+
+
         RadioButton iceCreamToppings = (RadioButton) rbSet1.getSelectedToggle();
         String iceCreamGroup = iceCreamToppings.getText();
+
+        //calculate extra for ice cream toppings
+        double iceCreamtoppingCost;
+        if ( iceCreamGroup == "None")
+        {
+            iceCreamtoppingCost = 0.0;
+        }
+        else
+        {
+            iceCreamtoppingCost = 0.50;
+        }
+        data.setIceCreamToppingCost(iceCreamtoppingCost);
+
         data.setPizzaToppings(pizzaGroup);
         data.setIceCreamToppings(iceCreamGroup);
         data.setPizza(pizza);
         data.setIceCream(iceCream);
         data.setSoda(soda);
+        data.setSodaCost(sodaCost);
         tfSummary.setText(data.toString());
 
 
