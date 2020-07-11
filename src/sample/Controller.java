@@ -142,7 +142,7 @@ double saucePrice = 0.0;
         double pizzaToppingCost;
         if ( pizzaGroup == "Cheese")
         {
-            pizzaToppingCost = 0.0;
+            pizzaToppingCost = 3.0;
         }
         else if (pizzaGroup == "Pepperoni")
         {
