@@ -24,6 +24,10 @@ public class Controller implements Initializable{
     Data data;
     ObservableList<String> cbList= FXCollections.observableArrayList("None","Water","Coke","Diet Coke","Dr. Pepper");
 
+    String sauceSelectionBbq;
+    String sauceSelectionGB;
+    String sauceSelectionRanch;
+double saucePrice = 0.0;
 
     @FXML private AnchorPane root;
 
@@ -66,16 +70,29 @@ public class Controller implements Initializable{
     @FXML
     void OnActionCheckBbq(ActionEvent event) {
 
+        if(chbBbq.isSelected())
+        {
+            sauceSelectionBbq = "BBQ Sauce";
+            saucePrice += .25;
+        }
     }
 
     @FXML
     void OnActionCheckGarlicButter(ActionEvent event) {
-
+        if(chbGarlicButter.isSelected())
+        {
+            sauceSelectionGB = "Garlic Butter";
+            saucePrice += .25;
+        }
     }
 
     @FXML
     void OnActionCheckRanch(ActionEvent event) {
-
+        if(chbRanch.isSelected())
+        {
+            sauceSelectionRanch = "Ranch Dressing";
+            saucePrice += .25;
+        }
     }
 
     @FXML void handleSodaComboBox(ActionEvent event) {
@@ -102,28 +119,7 @@ public class Controller implements Initializable{
         btnSummary.setFont(Font.font("Tahoma", FontWeight.NORMAL, 11));
     }
 
-    @FXML
-    void onActionSave(ActionEvent event) {
-
-        data = new Data();
-        String pizza = tbPizza.getText();
-        String iceCream = tbIceCream.getText();
-        String soda = cbCombo.getValue();
-        data.setPizza(pizza);
-        data.setIceCream(iceCream);
-        data.setSoda(soda);
-
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("."));
-        File file = fileChooser.showSaveDialog(null);		//Show save file dialog.
-        if(file != null)
-        {
-            data.WriteFile(file);
-        }
-    }
-
-    @FXML
-    public void onActionSummary(ActionEvent event) {
+    public void formInfo(){
         String sodaChoice = cbCombo.getValue();
         double sodaCost;
         if (sodaChoice == "None")
@@ -140,6 +136,7 @@ public class Controller implements Initializable{
         String soda = cbCombo.getValue();
         RadioButton pizzaToppings = (RadioButton) rbSet2.getSelectedToggle();
         String pizzaGroup = pizzaToppings.getText();
+
 
         //calculate extra cost of pizza
         double pizzaToppingCost;
@@ -181,11 +178,28 @@ public class Controller implements Initializable{
         data.setIceCream(iceCream);
         data.setSoda(soda);
         data.setSodaCost(sodaCost);
+        data.setSauceCost(saucePrice);
         tfSummary.setText(data.toString());
 
 
+    }
 
+    @FXML
+    void onActionSave(ActionEvent event) {
 
+        formInfo();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("."));
+        File file = fileChooser.showSaveDialog(null);		//Show save file dialog.
+        if(file != null)
+        {
+            data.WriteFile(file);
+        }
+    }
+
+    @FXML
+    public void onActionSummary(ActionEvent event) {
+    formInfo();
     }
 
     @Override

@@ -33,6 +33,15 @@ public class Data {
     private double sodaCost;
     private double pizzaToppingCost;
     private double iceCreamToppingCost;
+    private double sauceCost;
+
+    public double getSauceCost() {
+        return sauceCost;
+    }
+
+    public void setSauceCost(double sauceCost) {
+        this.sauceCost = sauceCost;
+    }
 
     public double getSodaCost() {
         return sodaCost;
@@ -89,7 +98,7 @@ public class Data {
     public String toString() {
         return "You want " + pizzaToppings + " " + pizza + " pizza with a " + soda + " and some " + iceCream + " ice cream " + iceCreamToppings + " on " +
                 "top for dessert. and the cost of the soda is: $" + sodaCost + "and pizza topping cost is $" + pizzaToppingCost
-                + "and the ice cream topping cost is $" + iceCreamToppingCost;
+                + "and the ice cream topping cost is $" + iceCreamToppingCost + "/r/nSauceCost: " + sauceCost;
     }
 
     public void WriteFile(File file)
